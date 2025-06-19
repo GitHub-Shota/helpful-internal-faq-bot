@@ -1,18 +1,9 @@
-
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, Calendar, Tag } from 'lucide-react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-
-interface FAQ {
-  id: number;
-  question: string;
-  answer: string;
-  category: string;
-  keywords: string[];
-  createdAt: string;
-}
+import { FAQ } from '@/types/faq';
 
 interface FAQCardProps {
   faq: FAQ;
@@ -54,7 +45,7 @@ const FAQCard: React.FC<FAQCardProps> = ({ faq }) => {
               </Badge>
               <div className="flex items-center">
                 <Calendar className="w-3 h-3 mr-1" />
-                {faq.createdAt}
+                {new Date(faq.created_at).toLocaleDateString('ja-JP')}
               </div>
             </div>
           </div>
